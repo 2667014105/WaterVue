@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Router from "vue-router";
+import C51Test from "@/views/c51/C51Test.vue";
 
 const Home = () => import("./views/Home/Home.vue");
 const SensorList = () => import("./views/Home/SensorList.vue");
@@ -10,6 +11,7 @@ const ControlLogs = () => import("./views/Home/ControlLogs.vue");
 const ControlSensor = () => import("./views/Home/ControlSensor.vue");
 const UserManagement = () => import("./views/Home/UserManagement.vue");
 const VisualSensor = () => import("./views/Home/VisualSensor.vue");
+const C51 = () => import("./views/c51/C51.vue");
 
 
 // import Home from './views/Home/Home.vue'
@@ -32,10 +34,20 @@ Vue.use(Router);
 
 const router = new Router({
   mode: "history", // mode: "hash",
-  base: process.env.BASE_URL,
-  routes: [{ path: "/", redirect: "/login" }, { path: "/login", component: Login }, {
-    path: "/registered",
-    component: Registered
+  base: process.env.BASE_URL, routes: [
+    {
+      path: "/", redirect: "/login"
+    },
+    {
+      path:"/test",component:C51
+    },{
+      path:"/C51test",component:C51Test
+    },
+    {
+      path: "/login", component: Login
+    },
+    {
+    path: "/registered", component: Registered
   }, {
     path: "/home", name: "home", component: Home, redirect: "/sensorList", children: [{
       path: "/sensorList", component: SensorList
@@ -53,8 +65,12 @@ const router = new Router({
       path: "/UserManagement", component: UserManagement
     }, {
       path: "/VisualSensor", component: VisualSensor
+    }, {
+      path: "/c51", component: C51
     }]
-  }]
+  }
+    // ,{path:"/c51",component:C51 }
+  ]
 });
 
 // router.beforeEach((to, from, next) => {

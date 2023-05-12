@@ -48,6 +48,12 @@
                   <i class="el-icon-user"></i>
                   <span>用户管理</span>
                 </el-menu-item>
+<!--                <el-menu-item index="/c51">c51-->
+<!--                  <C51></C51>-->
+
+<!--                </el-menu-item>-->
+
+
               </el-menu>
             </el-col>
           </el-row>

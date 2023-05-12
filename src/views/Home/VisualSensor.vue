@@ -14,12 +14,19 @@
       >
       </el-option>
     </el-select>
-    <div id="myChart" :style="{ width: '600px', height: '500px' }"></div>
+    <C51></C51>
+<!--    <div id="myChart" :style="{ width: '600px', height: '500px' }"></div>-->
+
   </div>
 </template>
 <script>
+
+import C51 from "@/views/c51/C51.vue";
 export default {
   name: "hello",
+  components:{
+    C51
+  },
   data() {
     return {
       sensorData: [],

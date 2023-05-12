@@ -8,6 +8,10 @@
         label-width="100px"
         class="demo-ruleForm"
       >
+        <el-form-item label="id" prop="id">
+          <el-input v-model="RegForm.id"></el-input>
+        </el-form-item>
+
         <el-form-item label="用户名" prop="username">
           <el-input v-model="RegForm.username"></el-input>
         </el-form-item>
@@ -32,8 +36,9 @@ export default {
   data() {
     return {
       RegForm: {
-        username: "",
-        password: "",
+        username: '',
+        password: '',
+        id: '',
         level: null,
       },
       regFormRules: {
@@ -72,7 +77,7 @@ export default {
       this.$refs[formName].validate(async (valid) => {
         if (valid) {
           const res = await this.$http.post("register", this.RegForm);
-          if (res.status == 200) {
+          if (res.status === 200) {
             this.$message({
               message: "注册成功",
               type: "success",
